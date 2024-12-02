@@ -22,8 +22,8 @@
 
 -  **Takım Üyeleri:**
 
-- X [https://github.com/efegucuyeter](Efe Gücüyeter)
-- X [https://github.com/aybarsakbabaspecial](Aybars Akbaba)
+-  [https://github.com/efegucuyeter]( Efe Gücüyeter)
+-  [https://github.com/aybarsakbabaspecial] (Aybars Akbaba)
 
   
 
