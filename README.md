@@ -22,7 +22,7 @@
 
 -  **Takım Üyeleri:**
 
--  [https://github.com/efegucuyeter]( Efe Gücüyeter)
+-  [https://github.com/efegucuyeter] (Efe Gücüyeter)
 -  [https://github.com/aybarsakbabaspecial] (Aybars Akbaba)
 
   
