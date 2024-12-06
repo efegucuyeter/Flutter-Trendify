@@ -127,6 +127,7 @@ lib/
 
 ## Ekran Görüntüleri
 
+![Ekran Resmi 2024-12-06 17 04 02](https://github.com/user-attachments/assets/7b9895a8-60c8-45b5-8077-e5c04583f5ec)
 [Uygulama ekran görüntüleri buraya eklenecek]
 
   
