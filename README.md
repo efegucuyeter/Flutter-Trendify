@@ -127,7 +127,7 @@ lib/
 
 ## Ekran Görüntüleri
 
-
+![Ekran Resmi 2024-12-06 17 10 04](https://github.com/user-attachments/assets/b0ec51f9-7d22-459a-bf67-7ffcf559769c)
 ![Ekran Resmi 2024-12-06 17 03 12](https://github.com/user-attachments/assets/9ddf5709-2336-4f7d-bdea-24b837fae558)
 ![Ekran Resmi 2024-12-06 17 03 39](https://github.com/user-attachments/assets/e8be214f-5e59-4e85-b8e3-bc562ec2b6de)
 ![Ekran Resmi 2024-12-06 17 04 02](https://github.com/user-attachments/assets/7b9895a8-60c8-45b5-8077-e5c04583f5ec)
