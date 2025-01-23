@@ -31,7 +31,7 @@ class _LoadingScreenState extends State<LoadingScreen> {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Image.asset(
-                'assets/images/logo.png',
+                'asset/images/logo.png',
                 width: 200,
                 height: 100,
                 fit: BoxFit.contain,

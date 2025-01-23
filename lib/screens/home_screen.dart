@@ -3,7 +3,7 @@ import 'package:go_router/go_router.dart';
 import '../core/themes.dart';
 
 class HomeScreen extends StatelessWidget {
-  const HomeScreen({Key? key}) : super(key: key);
+  const HomeScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -12,32 +12,32 @@ class HomeScreen extends StatelessWidget {
       {
         'name': 'Adidas Foamrunner',
         'price': '1259,99₺',
-        'image': 'assets/images/img5.png',
+        'image': 'asset/images/img5.png',
       },
       {
         'name': 'Bershka Topuklu Bot',
         'price': '999,99₺',
-        'image': 'assets/images/img6.png',
+        'image': 'asset/images/img6.png',
       },
       {
         'name': 'Iphone 16 250b Mor',
         'price': '45799,99₺',
-        'image': 'assets/images/img1.png',
+        'image': 'asset/images/img1.png',
       },
       {
         'name': 'Hyperx Cloud3 Kablolu Kulaklık',
         'price': '5999,99₺',
-        'image': 'assets/images/img2.png',
+        'image': 'asset/images/img2.png',
       },
       {
         'name': 'Madame Coco Priour Çay Fincanı',
         'price': '400,99₺',
-        'image': 'assets/images/img4.png',
+        'image': 'asset/images/img4.png',
       },
       {
         'name': 'Karaca Little Pumpkin Kupa',
         'price': '350,99₺',
-        'image': 'assets/images/img3.png',
+        'image': 'asset/images/img3.png',
       },
     ];
 
@@ -55,7 +55,7 @@ class HomeScreen extends StatelessWidget {
               // Logo
               Center(
                 child: Image.asset(
-                  'assets/images/logo.png',
+                  'asset/images/logo.png',
                   width: 400,
                   height: 200,
                   fit: BoxFit.contain,

@@ -22,7 +22,7 @@ class ProfileScreen extends StatelessWidget {
               const Center(
                 child: CircleAvatar(
                   radius: 80,
-                  backgroundImage: AssetImage('assets/images/pp.png'),
+                  backgroundImage: AssetImage('asset/images/pp.png'),
                   backgroundColor: AppColors.secondary,
                 ),
               ),
