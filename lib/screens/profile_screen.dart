@@ -84,6 +84,71 @@ class ProfileScreen extends StatelessWidget {
                   const SnackBar(content: Text('Kartlarım ekranı henüz eklenmedi.')),
                 );
               }, isDark),
+              const SizedBox(height: 10),
+              _buildSimpleMenuItem(Icons.settings, 'Ayarlar', () {
+                context.go('/settings'); 
+              }, isDark),
+              const SizedBox(height: 10),
+              _buildSimpleMenuItem(
+                Icons.exit_to_app,
+                'Çıkış yap',
+                    () {
+                      showDialog(
+                        context: context,
+                        builder: (context) => AlertDialog(
+                          backgroundColor: isDark ? AppColors.darkSecondary : AppColors.secondary, 
+                          icon: Icon(
+                            Icons.warning,
+                            color: isDark ? AppColors.darkAccent : AppColors.accent,
+                          ),
+                          title: Text(
+                            "Uyarı",
+                            style: TextStyle(
+                              color: isDark ? AppColors.darkTextPrimary : AppColors.textPrimary, 
+                            ),
+                          ),
+                          content: Text(
+                            "Çıkış yapmak istediğinizden emin misiniz?",
+                            style: TextStyle(
+                              color: isDark ? AppColors.darkTextSecondary : AppColors.textSecondary, 
+                            ),
+                          ),
+                          actions: [
+                            TextButton(
+                              onPressed: () => Navigator.of(context).pop(),
+                              child: Text(
+                                "İptal",
+                                style: TextStyle(
+                                  color: isDark ? AppColors.darkTextPrimary : AppColors.textPrimary, 
+                                ),
+                              ),
+                            ),
+                            ElevatedButton(
+                              style: ElevatedButton.styleFrom(
+                                backgroundColor: isDark ? AppColors.darkAccent : AppColors.accent, 
+                              ),
+                              onPressed: () {
+                                Navigator.of(context).pop(); 
+                              },
+                              child: Text(
+                                "Çık",
+                                style: TextStyle(
+                                  color: isDark ? AppColors.darkSecondary : AppColors.secondary, 
+                                ),
+                              ),
+                            ),
+                          ],
+                        ),
+                      );
+
+                    },
+                isDark,
+              ),
+
+
+
+
+
             ],
           ),
         ),
