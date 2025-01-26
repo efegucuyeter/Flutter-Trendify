@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class AppColors {
   // Gündüz Modu
@@ -22,11 +23,22 @@ class AppThemes {
     scaffoldBackgroundColor: AppColors.secondary,
     appBarTheme: AppBarTheme(
       backgroundColor: AppColors.primary,
-      foregroundColor: AppColors.textPrimary, 
+      foregroundColor: AppColors.textPrimary,
     ),
-    textTheme: const TextTheme(
-      bodyLarge: TextStyle(color: AppColors.textPrimary, fontSize: 16),
-      bodyMedium: TextStyle(color: AppColors.textSecondary, fontSize: 14),
+    textTheme: TextTheme(
+      bodyLarge: GoogleFonts.smoochSans(
+        color: AppColors.textPrimary,
+        fontSize: 16,
+      ),
+      bodyMedium: GoogleFonts.smoochSans(
+        color: AppColors.textSecondary,
+        fontSize: 14,
+      ),
+      headlineLarge: GoogleFonts.smoochSans(
+        color: AppColors.textPrimary,
+        fontSize: 32,
+        fontWeight: FontWeight.bold,
+      ),
     ),
     iconTheme: const IconThemeData(color: AppColors.textPrimary),
   );
@@ -36,11 +48,22 @@ class AppThemes {
     scaffoldBackgroundColor: AppColors.darkSecondary,
     appBarTheme: AppBarTheme(
       backgroundColor: AppColors.darkPrimary,
-      foregroundColor: AppColors.darkTextPrimary, 
+      foregroundColor: AppColors.darkTextPrimary,
     ),
-    textTheme: const TextTheme(
-      bodyLarge: TextStyle(color: AppColors.darkTextPrimary, fontSize: 16),
-      bodyMedium: TextStyle(color: AppColors.darkTextSecondary, fontSize: 14),
+    textTheme: TextTheme(
+      bodyLarge: GoogleFonts.smoochSans(
+        color: AppColors.darkTextPrimary,
+        fontSize: 16,
+      ),
+      bodyMedium: GoogleFonts.smoochSans(
+        color: AppColors.darkTextSecondary,
+        fontSize: 14,
+      ),
+      headlineLarge: GoogleFonts.smoochSans(
+        color: AppColors.darkTextPrimary,
+        fontSize: 32,
+        fontWeight: FontWeight.bold,
+      ),
     ),
     iconTheme: const IconThemeData(color: AppColors.darkTextPrimary),
   );

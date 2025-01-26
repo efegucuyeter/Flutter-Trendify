@@ -12,6 +12,9 @@ dependencies:
   go_router: ^14.7.1
   cupertino_icons: ^1.0.8
   provider: ^6.1.2
+  google_fonts: ^4.0.3
+  path_provider: ^2.0.15
+
 
 dev_dependencies:
   flutter_test:
@@ -23,5 +26,4 @@ flutter:
   uses-material-design: true
   assets:
     - asset/images/
-    - asset/icons/
 

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart'; 
+import 'package:provider/provider.dart';
 import 'package:go_router/go_router.dart';
 import '../core/themes.dart';
 
@@ -9,8 +9,7 @@ class HomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final themeProvider = Provider.of<ThemeProvider>(context);
-
-    final isDark = themeProvider.isDark; 
+    final isDark = themeProvider.isDark;
 
     final List<Map<String, String>> products = [
       {
@@ -47,15 +46,19 @@ class HomeScreen extends StatelessWidget {
 
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: AppColors.primary,
-        title: const Text('Trendify'),
+        backgroundColor: isDark ? AppColors.darkPrimary : AppColors.primary,
+        title: Text(
+          'Trendify',
+          style: Theme.of(context).textTheme.headlineSmall,
+        ),
         actions: [
           IconButton(
             icon: Icon(
               isDark ? Icons.dark_mode : Icons.light_mode,
+              color: isDark ? AppColors.darkTextPrimary : AppColors.textPrimary,
             ),
             onPressed: () {
-              Provider.of<ThemeProvider>(context, listen: false).toggleTheme();
+              themeProvider.toggleTheme();
             },
           ),
         ],
@@ -66,7 +69,6 @@ class HomeScreen extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              // Logo
               Center(
                 child: Image.asset(
                   'asset/images/logo.png',
@@ -79,30 +81,26 @@ class HomeScreen extends StatelessWidget {
 
               Text(
                 'Kategoriler',
-                style: TextStyle(
-                  fontSize: 20,
-                  fontWeight: FontWeight.bold,
+                style: Theme.of(context).textTheme.headlineSmall!.copyWith(
                   color: isDark
-                      ? AppColors.darkTextPrimary 
-                      : AppColors.textPrimary, 
+                      ? AppColors.darkTextPrimary
+                      : AppColors.textPrimary,
                 ),
               ),
               const SizedBox(height: 10),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceAround,
                 children: [
-                  _buildCategoryItem(Icons.checkroom, 'Giyim', isDark),
-                  _buildCategoryItem(Icons.chair, 'Mobilya', isDark),
-                  _buildCategoryItem(Icons.devices, 'Elektronik', isDark),
+                  _buildCategoryItem(context, Icons.checkroom, 'Giyim', isDark),
+                  _buildCategoryItem(context, Icons.chair, 'Mobilya', isDark),
+                  _buildCategoryItem(context, Icons.devices, 'Elektronik', isDark),
                 ],
               ),
               const SizedBox(height: 30),
 
               Text(
                 'Popüler Ürünler',
-                style: TextStyle(
-                  fontSize: 20,
-                  fontWeight: FontWeight.bold,
+                style: Theme.of(context).textTheme.headlineSmall!.copyWith(
                   color: isDark
                       ? AppColors.darkTextPrimary
                       : AppColors.textPrimary,
@@ -114,6 +112,7 @@ class HomeScreen extends StatelessWidget {
                   return Column(
                     children: [
                       _buildProductItem(
+                        context,
                         product['name']!,
                         product['price']!,
                         product['image']!,
@@ -130,12 +129,12 @@ class HomeScreen extends StatelessWidget {
       ),
       bottomNavigationBar: BottomNavigationBar(
         backgroundColor:
-        isDark ? AppColors.darkSecondary : AppColors.secondary, 
+        isDark ? AppColors.darkSecondary : AppColors.secondary,
         currentIndex: 0,
         selectedItemColor:
-        isDark ? AppColors.darkTextSecondary : AppColors.textSecondary, 
+        isDark ? AppColors.darkTextSecondary : AppColors.textSecondary,
         unselectedItemColor:
-        isDark ? AppColors.darkAccent : Colors.grey, 
+        isDark ? AppColors.darkAccent : Colors.grey,
         onTap: (index) {
           if (index == 1) {
             context.go('/search');
@@ -161,34 +160,40 @@ class HomeScreen extends StatelessWidget {
     );
   }
 
-  Widget _buildCategoryItem(IconData icon, String title, bool isDark) {
+  Widget _buildCategoryItem(
+      BuildContext context, IconData icon, String title, bool isDark) {
     return Column(
       children: [
         CircleAvatar(
           radius: 30,
-          backgroundColor: AppColors.primary.withOpacity(0.1),
-          child: Icon(icon, color: AppColors.primary, size: 30),
+          backgroundColor: isDark
+              ? AppColors.darkPrimary.withOpacity(0.1)
+              : AppColors.primary.withOpacity(0.1),
+          child: Icon(icon,
+              color: isDark ? AppColors.darkPrimary : AppColors.primary,
+              size: 30),
         ),
         const SizedBox(height: 8),
         Text(
           title,
-          style: TextStyle(
-            fontSize: 16,
-            fontWeight: FontWeight.bold,
-            color: isDark ? AppColors.darkTextPrimary : AppColors.textPrimary,
+          style: Theme.of(context).textTheme.bodyLarge!.copyWith(
+            color: isDark
+                ? AppColors.darkTextPrimary
+                : AppColors.textPrimary,
           ),
         ),
       ],
     );
   }
 
-  Widget _buildProductItem(
-      String name, String price, String imagePath, bool isDark) {
+  Widget _buildProductItem(BuildContext context, String name, String price,
+      String imagePath, bool isDark) {
     return Container(
       padding: const EdgeInsets.all(12),
       decoration: BoxDecoration(
         color: isDark ? AppColors.darkSecondary : AppColors.secondary,
-        border: Border.all(color: AppColors.accent),
+        border: Border.all(
+            color: isDark ? AppColors.darkAccent : AppColors.accent),
       ),
       child: Row(
         children: [
@@ -205,9 +210,8 @@ class HomeScreen extends StatelessWidget {
               children: [
                 Text(
                   name,
-                  style: TextStyle(
+                  style: Theme.of(context).textTheme.bodyLarge!.copyWith(
                     fontWeight: FontWeight.bold,
-                    fontSize: 16,
                     color: isDark
                         ? AppColors.darkTextPrimary
                         : AppColors.textPrimary,
@@ -216,8 +220,7 @@ class HomeScreen extends StatelessWidget {
                 const SizedBox(height: 5),
                 Text(
                   price,
-                  style: TextStyle(
-                    fontSize: 16,
+                  style: Theme.of(context).textTheme.bodyMedium!.copyWith(
                     color: isDark
                         ? AppColors.darkTextSecondary
                         : AppColors.textSecondary,
