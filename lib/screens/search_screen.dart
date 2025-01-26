@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import 'package:go_router/go_router.dart';
 import '../core/themes.dart';
 
@@ -7,6 +8,8 @@ class SearchScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final themeProvider = Provider.of<ThemeProvider>(context);
+    final isDark = themeProvider.isDark;
 
     final List<Map<String, String>> searchResults = [
       {
@@ -30,34 +33,56 @@ class SearchScreen extends StatelessWidget {
       appBar: AppBar(
         backgroundColor: AppColors.primary,
         title: const Text('Arama'),
+        actions: [
+          IconButton(
+            icon: Icon(
+              isDark ? Icons.dark_mode : Icons.light_mode,
+            ),
+            onPressed: () {
+              themeProvider.toggleTheme(); 
+            },
+          ),
+        ],
       ),
       body: Padding(
         padding: const EdgeInsets.all(16.0),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-
             TextField(
               decoration: InputDecoration(
                 hintText: 'Ürün veya kategori ara...',
-                prefixIcon: const Icon(Icons.search),
+                hintStyle: TextStyle(
+                  color: isDark
+                      ? AppColors.darkTextPrimary.withOpacity(0.7)
+                      : AppColors.textPrimary.withOpacity(0.7),
+                ),
+                prefixIcon: Icon(
+                  Icons.search,
+                  color: isDark ? AppColors.darkTextPrimary : AppColors.textPrimary,
+                ),
+                filled: true,
+                fillColor: isDark
+                    ? AppColors.darkSecondary.withOpacity(0.8)
+                    : AppColors.secondary,
                 border: OutlineInputBorder(
                   borderRadius: BorderRadius.circular(8.0),
+                  borderSide: BorderSide(
+                    color: isDark ? AppColors.darkAccent : AppColors.accent,
+                  ),
                 ),
               ),
             ),
             const SizedBox(height: 20),
-
-            const Text(
+            Text(
               'Sonuçlar',
               style: TextStyle(
                 fontSize: 20,
                 fontWeight: FontWeight.bold,
-                color: AppColors.primary,
+                color: isDark ? AppColors.darkTextPrimary : AppColors.textPrimary,
               ),
             ),
             const SizedBox(height: 10),
-
             Expanded(
               child: ListView.builder(
                 itemCount: searchResults.length,
@@ -69,6 +94,7 @@ class SearchScreen extends StatelessWidget {
                         result['name']!,
                         result['price']!,
                         result['image']!,
+                        isDark,
                       ),
                       const SizedBox(height: 10),
                     ],
@@ -80,9 +106,13 @@ class SearchScreen extends StatelessWidget {
         ),
       ),
       bottomNavigationBar: BottomNavigationBar(
+        backgroundColor:
+        isDark ? AppColors.darkSecondary : AppColors.secondary,
         currentIndex: 1,
-        selectedItemColor: AppColors.primary,
-        unselectedItemColor: Colors.grey,
+        selectedItemColor:
+        isDark ? AppColors.darkTextSecondary : AppColors.textSecondary,
+        unselectedItemColor:
+        isDark ? AppColors.darkAccent : Colors.grey,
         onTap: (index) {
           if (index == 0) {
             context.go('/home');
@@ -108,16 +138,16 @@ class SearchScreen extends StatelessWidget {
     );
   }
 
-  Widget _buildSearchResultItem(String name, String price, String imagePath) {
+  Widget _buildSearchResultItem(
+      String name, String price, String imagePath, bool isDark) {
     return Container(
       padding: const EdgeInsets.all(12),
       decoration: BoxDecoration(
-        color: AppColors.secondary,
-        border: Border.all(color: AppColors.accent),
+        color: isDark ? AppColors.darkSecondary : AppColors.secondary,
+        border: Border.all(color: isDark ? AppColors.darkAccent : AppColors.accent),
       ),
       child: Row(
         children: [
-          // Ürün Görseli
           Image.asset(
             imagePath,
             width: 60,
@@ -131,17 +161,21 @@ class SearchScreen extends StatelessWidget {
               children: [
                 Text(
                   name,
-                  style: const TextStyle(
+                  style: TextStyle(
                     fontWeight: FontWeight.bold,
                     fontSize: 16,
+                    color:
+                    isDark ? AppColors.darkTextPrimary : AppColors.textPrimary,
                   ),
                 ),
                 const SizedBox(height: 5),
                 Text(
                   price,
-                  style: const TextStyle(
+                  style: TextStyle(
                     fontSize: 16,
-                    color: AppColors.primary,
+                    color: isDark
+                        ? AppColors.darkTextSecondary
+                        : AppColors.textSecondary,
                   ),
                 ),
               ],
