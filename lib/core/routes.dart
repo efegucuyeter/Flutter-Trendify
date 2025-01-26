@@ -3,11 +3,17 @@ import 'package:go_router/go_router.dart';
 import '../screens/home_screen.dart';
 import '../screens/search_screen.dart';
 import '../screens/profile_screen.dart';
-import '../screens/settings_screen.dart'; 
+import '../screens/settings_screen.dart';
+import '../screens/loading_screen.dart';
 
 final GoRouter appRouter = GoRouter(
-  initialLocation: '/home', 
+  initialLocation: '/',
   routes: [
+    GoRoute(
+      path: '/',
+      name: 'loading',
+      builder: (context, state) => const LoadingScreen(),
+    ),
     GoRoute(
       path: '/home',
       name: 'home',
