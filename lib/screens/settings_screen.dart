@@ -13,7 +13,7 @@ class SettingsScreen extends StatelessWidget {
 
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: AppColors.primary,
+        backgroundColor: isDark ? AppColors.darkPrimary : AppColors.primary,
         title: const Text('Ayarlar'),
         actions: [
           IconButton(
