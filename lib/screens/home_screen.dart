@@ -11,39 +11,6 @@ class HomeScreen extends StatelessWidget {
     final themeProvider = Provider.of<ThemeProvider>(context);
     final isDark = themeProvider.isDark;
 
-    final List<Map<String, String>> products = [
-      {
-        'name': 'Adidas Foamrunner',
-        'price': '1259,99₺',
-        'image': 'asset/images/img5.png',
-      },
-      {
-        'name': 'Bershka Topuklu Bot',
-        'price': '999,99₺',
-        'image': 'asset/images/img6.png',
-      },
-      {
-        'name': 'Iphone 16 250b Mor',
-        'price': '45799,99₺',
-        'image': 'asset/images/img1.png',
-      },
-      {
-        'name': 'Hyperx Cloud3 Kablolu Kulaklık',
-        'price': '5999,99₺',
-        'image': 'asset/images/img2.png',
-      },
-      {
-        'name': 'Madame Coco Priour Çay Fincanı',
-        'price': '400,99₺',
-        'image': 'asset/images/img4.png',
-      },
-      {
-        'name': 'Karaca Little Pumpkin Kupa',
-        'price': '350,99₺',
-        'image': 'asset/images/img3.png',
-      },
-    ];
-
     return Scaffold(
       appBar: AppBar(
         backgroundColor: isDark ? AppColors.darkPrimary : AppColors.primary,
@@ -69,16 +36,84 @@ class HomeScreen extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
+              // Logo
               Center(
                 child: Image.asset(
-                  'asset/images/logo.png',
+                  'assets/images/logo.png',
                   width: 400,
                   height: 200,
                   fit: BoxFit.contain,
                 ),
               ),
               const SizedBox(height: 20),
+              Text(
+                'Kayıt Ol /Giriş Yap',
+                style: Theme.of(context).textTheme.headlineSmall!.copyWith(
+                  color: isDark
+                      ? AppColors.darkTextPrimary
+                      : AppColors.textPrimary,
+                ),
+              ),
+              SizedBox(height: 30,),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  GestureDetector(
+                    onTap: () => context.go('/login'),
+                    child: Column(
+                      children: [
+                        CircleAvatar(
+                          radius: 30,
+                          backgroundColor: isDark
+                              ? AppColors.darkPrimary.withOpacity(0.1)
+                              : AppColors.primary.withOpacity(0.1),
+                          child: Icon(Icons.login,
+                              color: isDark ? AppColors.darkPrimary : AppColors.primary,
+                              size: 30),
+                        ),
+                        const SizedBox(height: 8),
+                        Text(
+                          "Giriş Yap",
+                          style: Theme.of(context).textTheme.bodyLarge!.copyWith(
+                            color: isDark
+                                ? AppColors.darkTextPrimary
+                                : AppColors.textPrimary,
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                  const SizedBox(width: 40),
+                  GestureDetector(
+                    onTap: () => context.go('/register'),
+                    child: Column(
+                      children: [
+                        CircleAvatar(
+                          radius: 30,
+                          backgroundColor: isDark
+                              ? AppColors.darkPrimary.withOpacity(0.1)
+                              : AppColors.primary.withOpacity(0.1),
+                          child: Icon(Icons.app_registration,
+                              color: isDark ? AppColors.darkPrimary : AppColors.primary,
+                              size: 30),
+                        ),
+                        const SizedBox(height: 8),
+                        Text(
+                          "Kayıt Ol",
+                          style: Theme.of(context).textTheme.bodyLarge!.copyWith(
+                            color: isDark
+                                ? AppColors.darkTextPrimary
+                                : AppColors.textPrimary,
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                ],
+              ),
+              const SizedBox(height: 30),
 
+              // Kategoriler Başlığı
               Text(
                 'Kategoriler',
                 style: Theme.of(context).textTheme.headlineSmall!.copyWith(
@@ -88,6 +123,8 @@ class HomeScreen extends StatelessWidget {
                 ),
               ),
               const SizedBox(height: 10),
+
+              // Kategori Iconları
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceAround,
                 children: [
@@ -96,8 +133,10 @@ class HomeScreen extends StatelessWidget {
                   _buildCategoryItem(context, Icons.devices, 'Elektronik', isDark),
                 ],
               ),
+
               const SizedBox(height: 30),
 
+              // Popüler Ürünler
               Text(
                 'Popüler Ürünler',
                 style: Theme.of(context).textTheme.headlineSmall!.copyWith(
@@ -108,33 +147,24 @@ class HomeScreen extends StatelessWidget {
               ),
               const SizedBox(height: 10),
               Column(
-                children: products.map((product) {
-                  return Column(
-                    children: [
-                      _buildProductItem(
-                        context,
-                        product['name']!,
-                        product['price']!,
-                        product['image']!,
-                        isDark,
-                      ),
-                      const SizedBox(height: 10),
-                    ],
-                  );
-                }).toList(),
+                children: [
+                  _buildProductItem(context, 'Adidas Foamrunner', '1259,99₺',
+                      'assets/images/img5.png', isDark),
+                  _buildProductItem(context, 'Bershka Topuklu Bot', '999,99₺',
+                      'assets/images/img6.png', isDark),
+                  _buildProductItem(context, 'Iphone 16 250b Mor', '45799,99₺',
+                      'assets/images/img1.png', isDark),
+                ],
               ),
             ],
           ),
         ),
       ),
       bottomNavigationBar: BottomNavigationBar(
-        backgroundColor:
-        isDark ? AppColors.darkSecondary : AppColors.secondary,
+        backgroundColor: isDark ? AppColors.darkSecondary : AppColors.secondary,
         currentIndex: 0,
-        selectedItemColor:
-        isDark ? AppColors.darkTextSecondary : AppColors.textSecondary,
-        unselectedItemColor:
-        isDark ? AppColors.darkAccent : Colors.grey,
+        selectedItemColor: isDark ? AppColors.darkTextSecondary : AppColors.textSecondary,
+        unselectedItemColor: isDark ? AppColors.darkAccent : Colors.grey,
         onTap: (index) {
           if (index == 1) {
             context.go('/search');
@@ -177,9 +207,7 @@ class HomeScreen extends StatelessWidget {
         Text(
           title,
           style: Theme.of(context).textTheme.bodyLarge!.copyWith(
-            color: isDark
-                ? AppColors.darkTextPrimary
-                : AppColors.textPrimary,
+            color: isDark ? AppColors.darkTextPrimary : AppColors.textPrimary,
           ),
         ),
       ],
@@ -190,10 +218,10 @@ class HomeScreen extends StatelessWidget {
       String imagePath, bool isDark) {
     return Container(
       padding: const EdgeInsets.all(12),
+      margin: const EdgeInsets.only(bottom: 10),
       decoration: BoxDecoration(
         color: isDark ? AppColors.darkSecondary : AppColors.secondary,
-        border: Border.all(
-            color: isDark ? AppColors.darkAccent : AppColors.accent),
+        border: Border.all(color: isDark ? AppColors.darkAccent : AppColors.accent),
       ),
       child: Row(
         children: [

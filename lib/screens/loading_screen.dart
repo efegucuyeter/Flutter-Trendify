@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
 class LoadingScreen extends StatefulWidget {
-  const LoadingScreen({Key? key}) : super(key: key);
+  const LoadingScreen({super.key});
 
   @override
   State<LoadingScreen> createState() => _LoadingScreenState();
@@ -31,7 +31,7 @@ class _LoadingScreenState extends State<LoadingScreen> {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Image.asset(
-                'asset/images/logo.png',
+                'assets/images/logo.png',
                 width: 200,
                 height: 100,
                 fit: BoxFit.contain,

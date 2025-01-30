@@ -15,17 +15,17 @@ class SearchScreen extends StatelessWidget {
       {
         'name': 'Adidas Foamrunner',
         'price': '1259,99₺',
-        'image': 'asset/images/img5.png',
+        'image': 'assets/images/img5.png',
       },
       {
         'name': 'Bershka Topuklu Bot',
         'price': '999,99₺',
-        'image': 'asset/images/img6.png',
+        'image': 'assets/images/img6.png',
       },
       {
         'name': 'Iphone 16 250b Mor',
         'price': '45799,99₺',
-        'image': 'asset/images/img1.png',
+        'image': 'assets/images/img1.png',
       },
     ];
 

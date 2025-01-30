@@ -5,6 +5,8 @@ import '../screens/search_screen.dart';
 import '../screens/profile_screen.dart';
 import '../screens/settings_screen.dart';
 import '../screens/loading_screen.dart';
+import '../screens/login_screen.dart';
+import '../screens/register_screen.dart';
 
 final GoRouter appRouter = GoRouter(
   initialLocation: '/',
@@ -33,6 +35,16 @@ final GoRouter appRouter = GoRouter(
       path: '/settings',
       name: 'settings',
       builder: (context, state) => const SettingsScreen(),
+    ),
+    GoRoute(
+      path: '/login', // 🔹 Login (Giriş) sayfası eklendi
+      name: 'login',
+      builder: (context, state) => const LoginScreen(),
+    ),
+    GoRoute(
+      path: '/register', // 🔹 Register (Kayıt) sayfası eklendi
+      name: 'register',
+      builder: (context, state) => const RegisterScreen(),
     ),
   ],
   errorBuilder: (context, state) {
