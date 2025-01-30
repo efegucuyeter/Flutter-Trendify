@@ -1,5 +1,3 @@
-
-
 # Flutter Projesi
 
   
@@ -16,11 +14,11 @@
 
 ## Ekibimiz
 
--  **Danışman:**  
-[https://github.com/keyvanarasteh](Keyvan Arasteh)
+-  *Danışman:*  
+[https://github.com/keyvanarasteh] (Keyvan Arasteh)
 
 
--  **Takım Üyeleri:**
+-  *Takım Üyeleri:*
 
 -  [https://github.com/efegucuyeter] (Efe Gücüyeter)
 -  [https://github.com/aybarsakbabaspecial] (Aybars Akbaba)
@@ -35,13 +33,18 @@
 
 - [Kullanıcı Profilleri]
 
+- [Gece/Gündüz Modu]
+
   
 
 ## Kullanılan Teknolojiler
 
 - Flutter
-
 - Dart
+- lottie
+- provider
+- google fonts
+- go router
 
 
 
@@ -67,47 +70,47 @@
 
 1. Projeyi bilgisayarınıza indirin:
 
-```bash
+bash
 
 git  clone [https://github.com/efegucuyeter/Flutter-Trendify]
 
-```
+
 
   
 
 2. Proje klasörüne gidin:
 
-```bash
+bash
 
 cd [Flutter-Trendify]
 
-```
+
 
   
 
 3. Gerekli paketleri yükleyin:
 
-```bash
+bash
 
 flutter  pub  get
 
-```
+
 
   
 
 4. Uygulamayı başlatın:
 
-```bash
+bash
 
 flutter  run
 
-```
+
 
   
 
 ## Proje Yapısı
 
-```
+
 
 lib/
 
@@ -121,24 +124,25 @@ lib/
 
 └── yardımcılar/ # Yardımcı fonksiyonlar
 
-```
+
 
   
 
 ## Ekran Videosu
 
 
-link: https://youtube.com/shorts/7291MqCS6Y8?feature=share
+link: https://youtube.com/shorts/oLfgmviIwa4
+
 
 ## Projeye Katkı Sağlama
 
 1. Projeyi forklayın
 
-2. Yeni bir dal oluşturun (`git checkout -b ozellik/YeniOzellik`)
+2. Yeni bir dal oluşturun (git checkout -b ozellik/YeniOzellik)
 
-3. Değişikliklerinizi kaydedin (`git commit -m 'Yeni özellik eklendi'`)
+3. Değişikliklerinizi kaydedin (git commit -m 'Yeni özellik eklendi')
 
-4. Dalınıza gönderin (`git push origin ozellik/YeniOzellik`)
+4. Dalınıza gönderin (git push origin ozellik/YeniOzellik)
 
 5. Pull Request oluşturun
 
@@ -146,7 +150,7 @@ link: https://youtube.com/shorts/7291MqCS6Y8?feature=share
 
 ## Lisans
 
-[[MIT license](https://github.com/efegucuyeter/Flutter-Trendify#MIT-1-ov-file)] kapsamında lisanslanmıştır. Daha fazla bilgi için `LICENSE` dosyasını inceleyebilirsiniz.
+[[MIT license](https://github.com/efegucuyeter/Flutter-Trendify#MIT-1-ov-file)] kapsamında lisanslanmıştır. Daha fazla bilgi için LICENSE dosyasını inceleyebilirsiniz.
 
   
 
@@ -161,8 +165,3 @@ link: https://youtube.com/shorts/7291MqCS6Y8?feature=share
 ## Teşekkürler
 
 - İstinye Üniversitesi'ne destekleri için teşekkür ederiz
-
-
-
-  
-  
